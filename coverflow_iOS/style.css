@@ -1,0 +1,106 @@
+*
+{
+    margin:0;
+    padding:0;
+}
+body
+{
+    text-align:center;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+p
+{
+    color:#efefef;
+    font-weight:bold;
+    font-size:12px;
+}
+p.headerText
+{
+    margin-top:20px;
+}
+p.footerText
+{
+    position:absolute;
+    bottom:20px;
+    padding:10px;
+}
+/* Our wrapper element. Has overflow:hidden and
+a hardcoded value of 320 x 416 for iPhones and
+iPod touch.
+*/
+#wrapper
+{
+    width:320px;
+    height:416px;
+    background:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #000000), color-stop(20%, #34282C), color-stop(100%, #151515));
+    overflow:hidden;
+    margin:0 auto;
+    position:relative;
+}
+
+/*
+    To activate a 3D space we need a perspective. The value of perspective determines the
+    intensity of the 3D effect. Think of it as a distance from the viewer to the object.
+    The greater the value, the further the distance, the less intense the visual effect.
+*/
+.container {
+  width: 190px;
+  height: 140px;
+  position: relative;
+  margin: 100px auto;
+  -webkit-perspective: 1100;
+}
+
+/*
+    If you notice, the image at the center is at translateZ:200px position which means it is 200px out of 3D space.
+    So just to make the plane of the 3D space back to origin I do a translateZ(-200px). Also preserver-3D ensures
+    that the child of the element lives in the same 3d co-ordinate space
+*/
+#coverflow {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-transform: translateZ( -200px );
+  -webkit-transform-style: preserve-3d;
+}
+
+/* Adding CSS3 Transition rule, CSS3 reflections, CSS3 Drop Shadows
+to the <div> elements containing the images.
+*/
+#coverflow div {
+  display: block;
+  position: absolute;
+  width: 186px;
+  height: 150px;
+  border: 2px solid black;
+  -webkit-transition: -webkit-transform 0.7s ease;
+  -webkit-box-reflect:below 0px -webkit-gradient(linear, left top, left bottom, from(transparent),color-stop(0.8, transparent), to(white));
+  -webkit-box-shadow:-1px 1px 8px rgba(0, 0, 0, 0.9);
+}
+
+/*initial position for the 7 images
+This causes the 7 images to start at the rightmost
+position of the screen. These are hardcoded values
+just for now
+*/
+#coverflow div:nth-child(1) {
+  -webkit-transform:translateX(100px) rotateY(-60deg);
+}
+#coverflow div:nth-child(2) {
+  -webkit-transform:translateX(150px) rotateY(-60deg);
+}
+#coverflow div:nth-child(3) {
+  -webkit-transform:translateX(200px) rotateY(-60deg);
+}
+#coverflow div:nth-child(4) {
+  -webkit-transform:translateX(250px) rotateY(-60deg);
+}
+#coverflow div:nth-child(5) {
+  -webkit-transform:translateX(300px) rotateY(-60deg);
+}
+#coverflow div:nth-child(6) {
+  -webkit-transform:translateX(350px) rotateY(-60deg);
+}
+#coverflow div:nth-child(7) {
+  -webkit-transform:translateX(400px) rotateY(-60deg);
+}
